@@ -1,0 +1,3 @@
+# TO MAKE A APPLICATION INSIDE A NODE JS 
+
+# npm init 
