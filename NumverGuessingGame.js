@@ -7,8 +7,7 @@ const rl = readline.createInterface({
 });
 
 var randomNumber = Math.floor(Math.random() * 100); // to generate random number
-var guessCount = 10;
-// var guesses = 10; // to set the number of guesses
+var guessCount = 10; // to set the number of guesses
 
 rl.setPrompt('Guess a number between 0 and 100: '); // to set the prompt
 rl.prompt(); // to print the line from user
