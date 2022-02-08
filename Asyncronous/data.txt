@@ -1,0 +1,2 @@
+Data is added with asyncronous function :) 
+Data is updated with asyncronous function :) in NodeJS
