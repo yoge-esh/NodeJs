@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
 
   if (req.method == "GET") {
     switch (req.url) {
-      case "/":
+      case "/home":
         getToHome(req, res);
         break;
 
@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
     }
   } else if (req.method == "POST") {
     switch (req.url) {
-      case "/":
+      case "/home":
         postHome(req, res);
         break;
 
