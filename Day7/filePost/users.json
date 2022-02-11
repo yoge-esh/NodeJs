@@ -1,0 +1,20 @@
+[
+    {
+        "fname": "yogesh",
+        "lname": "khanal",
+        "address": "Nakkhu",
+        "contact": "1234567890"
+    },
+    {
+        "fname": "yogesh-K",
+        "lname": "khanal-Y",
+        "address": "Nakkhu-L",
+        "contact": "+977-1234567890"
+    },
+    {
+        "fname": "yogesh-Khanal",
+        "lname": "khanal-Yogesh",
+        "address": "Nakkhu-Lalitupr",
+        "contact": "+977-123456789"
+    }
+]
