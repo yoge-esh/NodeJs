@@ -1,0 +1,189 @@
+@import "../scss/var";
+@import "../scss/vendor";
+@import "../scss/mixing";
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+.main_header {
+  background-color: $main-color;
+  width: 98.78vw;
+  line-height: 10rem;
+
+  & .navbar-brand {
+    color: $text-color;
+    animation: music 1s linear infinite;
+    animation-direction: alternate;
+
+    & .fas {
+      font-size: 4rem;
+    }
+
+    @keyframes music {
+      from {
+        transform: rotate(5deg);
+      }
+      to {
+        transform: rotate(-5deg);
+      }
+    }
+    &:hover {
+      filter: drop-shadow(0rem 1.5rem 1rem rgba(255, 255, 255, 0.3));
+    }
+  }
+
+  & .navbar-nav {
+    padding: 8px;
+
+    & .nav-item .nav-link {
+      color: $text-color;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      padding-right: 3rem;
+      padding-left: 3rem;
+      font-weight: 600;
+    }
+
+    & .nav-item:last-child > .nav-link {
+      padding-right: 0;
+    }
+  }
+
+  & .nav-item:hover > .nav-link,
+  & .navbar-brand:hover,
+  & .navbar-brand:hover > .fas {
+    color: $primary-color;
+  }
+
+  & .my_btn {
+    @include mybtn;
+
+    &:hover {
+      @include hovereffects;
+    }
+  }
+}
+
+// main header start here
+.header_hero {
+  width: 100%;
+  height: 80vh;
+  background: $main-color;
+
+  &_text {
+    height: 80vh;
+    @include content_center(flex-start);
+
+    & h2 {
+      color: $text-color;
+      font-size: 6.2rem;
+      margin-bottom: 3rem;
+      line-height: 150%;
+      font-weight: 600;
+      & span {
+        color: $primary-color;
+        text-transform: capitalize;
+      }
+    }
+
+    & p {
+      color: $text-color;
+      font-size: 1.6rem;
+      margin-bottom: 5rem;
+    }
+
+    & .header_text__button {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+
+      & a {
+        @include mybtn;
+
+        &:hover {
+          @include hovereffects;
+        }
+      }
+
+      & #btn__2 {
+        margin-left: 20px;
+        background-color: rgba(255, 255, 255, 0.3);
+        &:hover {
+          @include hovereffects;
+        }
+      }
+    }
+  }
+
+  // images hero part is here
+  &__image {
+    height: 65vh;
+    // background: black;
+    @include content_center(flex-end);
+    animation: animate_image 10s linear infinite alternate;
+
+    @keyframes animate_image {
+      from {
+        transform: scale(0.7);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+
+    &:hover {
+      filter: drop-shadow(0rem 1.5rem 1rem rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+// responsiveness
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  .header_hero__text .header_text__button {
+    display: block;
+    margin: 0 auto;
+}
+.main-header {
+    line-height: 5rem;
+    padding: 0 2rem;
+    text-align: center;
+    display: inline-block;
+
+    & .navbar-nav{
+        padding: 0;
+        padding-left: 3rem;
+    }
+
+    .navbar .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .header_hero__text .header_text__button a {
+    display: block;
+  }
+
+  .header_hero__text .header_text__button #btn__2 {
+    margin-top: 20px;
+    margin-left: 0%;
+  }
+  .navbar {
+    position: relative;
+  }
+  .header_hero__image {
+    display: none;
+  }
+}
