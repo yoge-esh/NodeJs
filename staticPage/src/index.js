@@ -16,18 +16,33 @@ app.use(express.static(staticPath));
 
 // template 
 // INDEX.HBS
-app.get("/", (req, res) =>{
+app.get("/", (req, res) => {
     res.render("index", {
         user: "User",
     });
 })
 
 // ABOUT.HBS
-app.get("/about", (req, res) =>{
-    res.render("about");
+app.get("/about", (req, res) => {
+    res.render("about")
+});
+
+// random search from about us page 
+app.get("/about/*", (req, res) => {
+    res.render("404", {
+        errorcoment: "Page not found after search from about page",
+    });
 });
 
 
-app.listen(3000, () =>{
+
+// keep this at last for that after checking all rounte we can use this
+app.get("*", (req, res) => {
+    res.render("404", {
+        errorcoment: "Page not found",
+    });
+});
+
+app.listen(3000, () => {
     console.log('Listening to port 3000');
 })
