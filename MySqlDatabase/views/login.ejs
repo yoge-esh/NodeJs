@@ -1,160 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      :root {
+        --dark-dimmed: #2f363e;
+        --accent: #ffcc33;
+        --accent-dimmed: #ffcc33;
+        --light: #fff;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 10px;
+        background: var(--dark-dimmed);
+      }
+      .container {
+        position: relative;
+        width: 350px;
+        min-height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--dark-dimmed);
+        box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+          10px 10px 70px rgba(0, 0, 0, 0.25),
+          inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+          inset 5px 5px 10px rgba(255, 255, 255, 0.2),
+          inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+        border-radius: 50px;
+        padding: 50px;
+      }
+      form {
+        position: relative;
+        width: 100%;
+      }
+      .container h3 {
+        color: var(--light);
+        font-weight: 600;
+        font-size: 2em;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .inputBox {
+        position: relative;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      .inputBox span {
+        display: inline;
+        color: var(--light);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.75em;
+        border-left: 4px solid #fff;
+        padding-left: 4px;
+        line-height: 1em;
+      }
+      .inputBox .box {
+        display: flex;
+      }
+      .inputBox .box .icon {
+        position: relative;
+        width: 48px;
+        height: 40px;
+        background: var(--accent);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin-right: 10px;
+        color: var(--light);
+        font-size: 1.15em;
+        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+          inset 2px 2px 5px rgba(255, 255, 255, 0.25),
+          inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+      }
+      .inputBox .box input {
+        position: relative;
+        width: 100%;
+        border: none;
+        outline: none;
+        letter-spacing: 1px;
+        font-size: 0.85em;
+        padding: 10px 20px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+          inset 2px 2px 5px rgba(0, 0, 0, 0.35),
+          inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+      }
+      .inputBox .box input[type="submit"] {
+        background: var(--accent-dimmed);
+        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+          inset 2px 2px 5px rgba(255, 255, 255, 0.25),
+          inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+        color: var(--light);
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+      .inputBox .box input[type="submit"]:hover {
+        filter: brightness(1.05);
+      }
+      label {
+        color: var(--light);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.85em;
+        display: flex;
+        align-items: center;
+      }
+      label input {
+        margin-right: 5px;
+      }
+      .forgot {
+        color: var(--light);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.85em;
+        text-decoration: none;
+      }
+      .forgot:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <title>Login</title>
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <style>
-            @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
-            .login-page {
-                width: 360px;
-                padding: 8% 0 0;
-                margin: auto;
-            }
-
-            .form {
-                position: relative;
-                z-index: 1;
-                background: #FFFFFF;
-                max-width: 360px;
-                margin: 0 auto 100px;
-                padding: 45px;
-                text-align: center;
-                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-            }
-
-            .form input {
-                font-family: "Roboto", sans-serif;
-                outline: 0;
-                background: #f2f2f2;
-                width: 100%;
-                border: 0;
-                margin: 0 0 15px;
-                padding: 15px;
-                box-sizing: border-box;
-                font-size: 14px;
-            }
-
-            .form button {
-                font-family: "Roboto", sans-serif;
-                text-transform: uppercase;
-                outline: 0;
-                background: #4CAF50;
-                width: 100%;
-                border: 0;
-                padding: 15px;
-                color: #FFFFFF;
-                font-size: 14px;
-                -webkit-transition: all 0.3 ease;
-                transition: all 0.3 ease;
-                cursor: pointer;
-            }
-
-            .form button:hover,
-            .form button:active,
-            .form button:focus {
-                background: #43A047;
-            }
-
-            .form .message {
-                margin: 15px 0 0;
-                color: #b3b3b3;
-                font-size: 12px;
-            }
-
-            .form .message a {
-                color: #4CAF50;
-                text-decoration: none;
-            }
-
-            .form .register-form {
-                display: none;
-            }
-
-            .container {
-                position: relative;
-                z-index: 1;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .container:before,
-            .container:after {
-                content: "";
-                display: block;
-                clear: both;
-            }
-
-            .container .info {
-                margin: 50px auto;
-                text-align: center;
-            }
-
-            .container .info h1 {
-                margin: 0 0 15px;
-                padding: 0;
-                font-size: 36px;
-                font-weight: 300;
-                color: #1a1a1a;
-            }
-
-            .container .info span {
-                color: #4d4d4d;
-                font-size: 12px;
-            }
-
-            .container .info span a {
-                color: #000000;
-                text-decoration: none;
-            }
-
-            .container .info span .fa {
-                color: #EF3B3A;
-            }
-
-            body {
-                background: #76b852;
-                /* fallback for old browsers */
-                background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-                background: -moz-linear-gradient(right, #76b852, #8DC26F);
-                background: -o-linear-gradient(right, #76b852, #8DC26F);
-                background: linear-gradient(to left, #76b852, #8DC26F);
-                font-family: "Roboto", sans-serif;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div class="login-page">
-            <div class="form">
-                <form action="/login" method="post">
-                    <form class="register-form">
-                        <input type="text" placeholder="name" />
-                        <input type="password" placeholder="password" name="txtUsername"/>
-                        <input type="text" placeholder="email address" name="txtEmail"/>
-                        <button>create</button>
-                        <p class="message">Already registered? <a href="#">Sign In</a></p>
-                    </form>
-                    <form class="login-form">
-                        <input type="text" placeholder="username" />
-                        <input type="password" placeholder="password" />
-                        <button>login</button>
-                        <p class="message">Not registered? <a href="#">Create an account</a></p>
-                    </form>
-                </form>
+  <body>
+    <div class="container">
+      <form action="/api/login" method="post">
+        <h3>Log In</h3>
+        <div class="inputBox">
+          <span>Username</span>
+          <div class="box">
+            <div class="icon">
+              <ion-icon name="person"></ion-icon>
             </div>
+            <input id="txtUsername" name="txtUsername" type="text" />
+          </div>
         </div>
 
-        <script>
-            $('.message a').click(function () {
-                $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
-            });
-        </script>
-    </body>
+        <div class="inputBox">
+          <span>Password</span>
+          <div class="box">
+            <div class="icon">
+              <ion-icon name="lock-closed"></ion-icon>
+            </div>
+            <input id="txtPassword" name="txtPassword" type="password" />
+          </div>
+        </div>
 
+        <div class="inputBox">
+          <div class="box">
+            <input type="submit" value="Log in" />
+          </div>
+        </div>
+
+        <!-- <a href="#" class="forgot">Forgot the password?</a> -->
+      </form>
+    </div>
+
+    <!--  IonIcons  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
