@@ -1,19 +1,42 @@
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
+// import 'dotenv/config';
+
+// function jwtverifiy(req, res, next){
+//     let token = req.cookies.token;
+//     if(token){
+//         jwt.verify(token, process.env.JWT_KEY, (err, decoded) => {
+//             if(err){
+//                 res.status(403).send(err);
+//             }else{
+//                 next();
+//             }
+//         });
+//     }else{
+//         res.redirect('/login');
+//     }
+// }
+
+// export default jwtverifiy;
+
+
+import jwt  from 'jsonwebtoken';
 import 'dotenv/config';
 
-function jwtverifiy(req, res, next){
+function jwtVerify(req,res,next){
     let token = req.cookies.token;
-    if(token){
-        jwt.verify(token, process.env.JWT_KEY, (err, decoded) => {
-            if(err){
+    if(token)
+    {
+        jwt.verify(token,process.env.JWT_KEY,(err,decoded)=>{
+            if (err) {
                 res.status(403).send(err);
-            }else{
+            } else {
                 next();
             }
         });
-    }else{
-        res.redirect('/login');
+    }
+    else{
+        res.redirect('/');
     }
 }
 
-export default jwtverifiy;
+export default jwtVerify;
